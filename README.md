@@ -1,7 +1,7 @@
 ## PqaBOT ROS2 Humble
 ROS2 Training repository
 
-<img src="/home/nazwa/pqa_ws/src/pqa_bot/assets/pqa_v1.jpeg" style=" height: 200px; width:200px;">
+<img src="/assets/pqa_v1.jpeg" style=" height: 200px; width:200px;">
 
 #### Launch robot_state_publisher, Rviz2, & Gazebo
 ```
