@@ -19,6 +19,10 @@
         <color rgba="0 0 0 1"/>
     </material>
 
+    <material name="yellow">
+        <color rgba="1 1 0 1"/>
+    </material>
+
     <!-- BASE LINK -->
     <link name="base_link">
 
@@ -219,7 +223,7 @@
             <geometry>
                 <box size="0.1 0.3 0.35"/>
             </geometry>
-            <material name="white"/>
+            <material name="black"/>
         </visual>
         <collision>
             <origin xyz="0 0 0"/>
@@ -241,7 +245,6 @@
         <parent link="upper_body"/>
         <child link="head"/>
         <origin xyz="0 0 0.25"/>
-        <!-- Adjust the XYZ values as needed -->
     </joint>
 
     <link name="head">
@@ -249,9 +252,8 @@
             <origin xyz="0 0 0"/>
             <geometry>
                 <sphere radius="0.075"/>
-                <!-- Adjust the radius as needed -->
             </geometry>
-            <material name="blue"/>
+            <material name="white"/>
         </visual>
         <collision>
             <origin xyz="0 0 0"/>
@@ -285,7 +287,7 @@
             <geometry>
                 <box size="0.2 0.05 0.05"/>
             </geometry>
-            <material name="black"/>
+            <material name="white"/>
         </visual>
         <collision>
             <origin xyz="0.05 0 0"/>
@@ -320,7 +322,7 @@
             <geometry>
                 <box size="0.2 0.05 0.05"/>
             </geometry>
-            <material name="black"/>
+            <material name="white"/>
         </visual>
         <collision>
             <origin xyz="0.05 0 0"/>
@@ -337,5 +339,32 @@
         <material>Gazebo/White</material>
     </gazebo>
 
+
+    <!-- CAMERA JOINT -->
+    <joint name="camera_joint" type="fixed">
+        <parent link="head"/>
+        <child link="camera"/>
+        <origin xyz="0 0 0.1"/>
+    </joint>
+
+    <!-- CAMERA LINK -->
+    <link name="camera">
+        <visual>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <box size="0.05 0.05 0.05"/>
+            </geometry>
+            <material name="yellow"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <box size="0.05 0.05 0.05"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="0.02" x="0.1" y="0.1" z="0.1">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_box>
+    </link>
 
 </robot>
